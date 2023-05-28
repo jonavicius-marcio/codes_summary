@@ -12,6 +12,8 @@ GIT - Resumo
 7. [Merge](#Merge)
 8. [Stash](#Stash)
 9. [Log](#Log)
+10. [Ignore](#Ignore)
+
 
 
 ## Configuração
@@ -179,7 +181,11 @@ deletar todos os rascunhos
 ```
 
 
+# Git Ignore 
+Site que preenche automaticamente o ignore
+https://www.toptal.com/developers/gitignore 
 ```
+
 ```
 
 
