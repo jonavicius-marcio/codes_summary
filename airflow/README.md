@@ -85,6 +85,8 @@ as configurações ficam em  airflow.cfg. Abra a pasta com
 ```
     nano  airflow.cfg
 ```
+crtl + x fechar
+
 
 # task 
 rodar uma task pelo terminal 
