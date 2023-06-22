@@ -80,6 +80,47 @@ listar as pastas no linux
 ```
 
 
+# Instalar em um ambiente virtual   
+
+Comandos Utilizados:
+
+criar ambiente 
+```
+python3 -m venv .env
+source .env/bin/activate
+```
+
+criar variavel de ambiente 
+```
+export AIRFLOW_HOME=$(pwd)/airflow
+```
+
+instalar 
+```
+AIRFLOW_VERSION=2.2.0
+PYTHON_VERSION="$(python --version | cut -d " " -f 2 | cut -d "." -f 1-2)"
+CONSTRAINT_URL="https://raw.githubusercontent.com/apa...{AIRFLOW_VERSION}/constraints-${PYTHON_VERSION}.txt"
+pip install "apache-airflow[async,postgres,google]==${AIRFLOW_VERSION}" --constraint "${CONSTRAINT_URL}"
+```
+
+Criar user 
+
+```
+airflow users create     --username admin     --firstname name     --lastname lastname     --role Admin     --email email
+
+```
+iniciar o airflow
+```
+airflow db init
+
+airflow scheduler -D
+
+airflow webserver
+```
+https://airflow.apache.org/docs/apache-airflow/2.2.0/installation/installing-from-pypi.html
+
+
+
 # configuração  
 as configurações ficam em  airflow.cfg. Abra a pasta com 
 ```

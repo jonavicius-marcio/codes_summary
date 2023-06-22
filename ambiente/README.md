@@ -4,7 +4,9 @@ GIT - Resumo
 
 # Menu
 1. [Ambiente](#Ambiente)
-2. [freeze](#freeze)
+2. [Conda](#Conda)
+3. [freeze](#freeze)
+
 
 
 
@@ -38,6 +40,16 @@ create and a activate Linux
     python3.9 -m venv venv
     source venv/bin/activate
 ```
+
+## Conda ambiente 
+
+
+```
+    conda activate
+    conda deactivate
+```
+
+
 
 ## freeze
 
