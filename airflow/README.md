@@ -9,10 +9,10 @@ Airflow - Resumo
 4. [task](#task)
 5. [Dag](#Dag)
 6. [Control](#Control)
-6. [Operators](#Operators)
-6. [Decorators](#Decorators)
-7. [Executores](#Executores)
-8. [Paralelismo ](#Paralelismo)
+7. [Operators](#Operators)
+8. [Templates](#Templates)
+9. [Papermill](#Papermill)
+10. [Paralelismo ](#Paralelismo)
 
 
 ## Instalação automatica
@@ -144,8 +144,6 @@ para de mostrar os exemplos (mudar no airflow.cfg )
 load_examples = False
 
 
-
-
 Control Flow
 Formas de controlar a execução de tarefas.
 ● Branching:  Determina qual tarefa mover a partir de uma condição.
@@ -154,7 +152,7 @@ Formas de controlar a execução de tarefas.
 ● Trigger Rules:  Permite definir as condições para um DAG executar
 uma tarefa.
 
-# task 
+## task 
 rodar uma task pelo terminal 
 ```
     airflow tasks nomeDag nomeTask
@@ -175,11 +173,11 @@ Estados de cada tarefa.
 ● removed: a tarefa desapareceu do DAG desde o início da execução.
 
 
-# Xcom 
+## Xcom 
 com SQLite pode compartilhar 2gb, com postgres 1gb, mysql 64kb
 
 
-# Dag
+## Dag
 DAG (Directed Acyclic Graphs) -
 
 
@@ -218,7 +216,7 @@ Determina quais tarefas serão executadas e as coloca no estado enfileirado para
 Busca e executa as tarefas que estão no estado enfileirado.
 
 
-# Control
+## Control
 
 **Control Flow** 
 
@@ -267,20 +265,68 @@ Operator é o componente que determina qual ferramenta será utilizada para exec
 **SimpleHttpOperator** - envia uma requisição http.
 **SqliteOperator** - operador para trabalhar com sqlite.
 
-# Templates
+**Sensor Operators** 
+Tipo especial de operadores que nos permitem esperar para um evento
+acontecer ou uma condição ser satisfeita.
+
+● Aguardar um arquivo estar disponível em um diretório/volume.
+● Aguardar dados serem retornados a partir de uma consulta SQL.
+● Receber um status de uma requisição http.
+● Aguardar uma partição no hive está disponível.
+● Aguardar por um arquivo está presente em um bucket S3.
 
 
-![image](files/Users/jzhang/Desktop/Isolated.png)
+## Templates
 
+Variáveis, Templates e Macros
+Macros padrão é definida pelo Airflow e que são utilizáveis em todo
+template.
+
+![image](https://raw.githubusercontent.com/jonavicius-marcio/codes_summary/main/airflow/img/image.png)
 
 https://airflow.apache.org/docs/apache-airflow/stable/templates-ref.html
 
-# Executores 
 
-# Papermill
+## Papermill
 
 https://papermill.readthedocs.io/en/latest/installation.html 
 
+rodar o papermill com o python. Abrir o pyhton e rodar 
+
+```
+import papermill as pm 
+
+pm.execute_notebook(
+   'regression-project.ipynb',
+    'output.ipynb',
+    parameters = dict(
+        test_size = 0.25,
+        dataset = "./data/ecomerce.csv",
+        model = "./model/",
+        n_estimators = 1000,
+        max_depth= 5
+    ) 
+)
+```
+
+
+
+
+
+Outra forma de rodar é com o 
+
+```
+papermill [OPTIONS] NOTEBOOK_PATH [OUTPUT_PATH]
+```
+
+
+
+OPTIONS: define parameters to the notebook 
+
+Exemplo: 
+```
+papermill regression-project.ipynb output.ipynb -p test_size 0.25 -p dataset "./data/ecomerce.csv" -p model "./model/" -p n_estimators 1000 -p max_depth 5 --stdout-file test.txt --stderr-file err.txt
+```
 
 **Vantagens**
 ● Alternativa mais rápida e simples.
