@@ -7,7 +7,7 @@ AWS - Resumo
 2. [SSH](#SSH)
 3. [EC2](#EC2)
 
-# Configuração
+# Configuração CLI
 
 Windowns baixe o excutável no link: 
 
@@ -33,6 +33,10 @@ Caso tenho esquecido as credenciais pegue na pasta:
     cat ~/-aws/config
     cat ~/-aws/credentials
 ```
+
+# CLI 
+
+
 
 ## Help 
 
@@ -90,4 +94,80 @@ aws ec2 attach-volume --volume-id vol-0ad91b69b44c62007 --instance-id i-001c3531
 ```
 
 
+
+
+
+
+## Conexão S3 Django
+
+
+https://django-storages.readthedocs.io/en/latest/index.html 
+
+1 Criar bucket
+2 criar user com credenciais CLI 
+3 instalar pip install boto3 e pip install django-storages
+4 pip freeze -> requirement.txt
+5 python manage.py collectstatic copia todos os arquivos estaticos para o bucket
+
+
+## GCP - VM
+
+
+https://django-storages.readthedocs.io/en/latest/index.html 
+
+1 Criar vm com permissão Http e https
+2. Fixar IP (detalhes de rede)
+3. gerar ssh-keygen
+4. atualizar
+sudo apt update -y
+sudo apt upgrade -y
+sudo apt autoremove -y
+sudo apt install build-essential -y
+sudo apt install python3.9 python3.9-venv python3.9-dev -y
+sudo apt install nginx -y
+sudo apt install certbot python3-certbot-nginx -y
+sudo apt install postgresql postgresql-contrib -y
+sudo apt install libpq-dev -y
+sudo apt install git
+
+
+
+## Instalando o PostgreSQL
+
+```
+# Nós fizemos isso acima
+sudo apt install postgresql postgresql-contrib -y
+```
+
+Caso queira mais detalhes: https://youtu.be/VLpPLaGVJhI  
+Mais avançado: https://youtu.be/FZaEukN_raA
+
+### Configurações
+
+```
+sudo -u postgres psql
+# Criando um super usuário
+CREATE ROLE usuario WITH LOGIN SUPERUSER CREATEDB CREATEROLE PASSWORD 'senha';
+
+# Criando a base de dados
+CREATE DATABASE basededados WITH OWNER usuario;
+
+# Dando permissões
+GRANT ALL PRIVILEGES ON DATABASE basededados TO usuario;
+
+# Saindo
+\q
+sudo systemctl restart postgresql
+```
+
+Caso queira mais detalhes: https://youtu.be/VLpPLaGVJhI  
+Mais avançado: https://youtu.be/FZaEukN_raA
+
+## Configurando o git
+
+```
+git config --global user.name 'Seu nome'
+git config --global user.email 'seu_email@gmail.com'
+git config --global init.defaultBranch main
+```
 
