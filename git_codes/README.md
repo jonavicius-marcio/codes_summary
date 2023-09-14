@@ -3,20 +3,23 @@ GIT - Resumo
 
 
 # Menu
-1. [Configuração](#Configuração)
-2. [Servidor](#Servidor)
+1. [Configuração](#config)
+2. [Servidor](#serve)
 3. [Commit](#Commit)
 4. [Status](#Status)
 5. [Resturar](#Resturar)
 6. [Branch](#Branch)
 7. [Merge](#Merge)
 8. [Stash](#Stash)
-9. [Log](#Log)
-10. [Ignore](#Ignore)
+9. [Log](#log)
+10. [Ignore](#ignore)
 
 
+<div id='config'/>  
 
-## Configuração
+# 1 Configuração
+
+
 
 Para a maquina toda 
 ```
@@ -35,7 +38,10 @@ Verificar usuario e email
     git config user.email
 ```
 
-## Servidor
+
+<div id='serve'/>  
+
+# 2 Servidor
 
 add server
 ```
@@ -59,8 +65,9 @@ Servidor local:  vá até a pasta do servidor e digite
     git remote add repository_name  diretorio (ex: git remote add local C:/Users/git-e-github/servidor)
 ```
 
+<div id='Commit'/>  
 
-# Commit
+# 3 Commit
 adcionar para commit 
 
 ```
@@ -87,12 +94,16 @@ usado para enviar quaisquer commits feitos localmente na branch `master` para um
     git push -u origin master
 ```
 
-# Status
+<div id='Status'/>  
+
+# 4 Status
 ```
     git status
 ```
 
-# Resturar
+<div id='Resturar'/>  
+
+# 5 Resturar
 
 Resturar arquivos do repositorio. Vc quer pagar as modificações feita no arquivo fazendo um copia do arquivo 
 do repositorio
@@ -111,7 +122,10 @@ Caso já tenha realizado um commit, utilize:
     git rm -r --cached <diretório>
 ```
 
-# Branchs 
+<div id='Branchs'/>  
+
+
+# 6 Branchs 
 https://git-school.github.io/visualizing-git/
 
 mostra as branchs 
@@ -138,8 +152,9 @@ deletar branch (-d ou –delete)
  O checkout, Este comando também é utilizado para dispensar mudanças de um arquivo;
  Alterando o branch podemos levar alterações que não foram commitadas junto, **tome cuidado!**
 
+<div id='Merge'/>  
 
-# Merge
+# 7 Merge
 
 fazer um merge da branch titulo com a main. 
 ```
@@ -151,7 +166,10 @@ Juntar os arquivos sem perder a log dos commits
     git rebase titulo
 ```
 
-# Stash  
+
+<div id='Stash'/>  
+
+# 8 Stash  
 Após o comando o branch será resetado para a sua versão de acordo com o repositório. 
 ```
     git stash
@@ -180,6 +198,26 @@ deletar todos os rascunhos
     git stash clear
 ```
 
+<div id='log'/>  
+
+# log e reflog
+
+```
+    git log
+```
+
+Mostra todos os commits 
+```
+    git reflog
+```
+
+Para pegar um id e enviar para o master use git cherry-pick. 
+Irá enviar o commit para o repositorio e mostrar um conflito
+```
+    git cherry-pick <id>
+```
+
+<div id='log'/>  
 
 # Git Ignore 
 Site que preenche automaticamente o ignore

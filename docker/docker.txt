@@ -1,0 +1,18 @@
+# lista container ativas
+docker ps 
+
+# lista container ativas e inativas
+docker ps -a
+
+# inicializa um cointainer parado
+Docker start name_container
+
+# para um container
+Docker start name_container
+
+
+
+
+
+
+
