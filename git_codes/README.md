@@ -124,6 +124,27 @@ Caso já tenha realizado um commit, utilize:
 
 <div id='Branchs'/>  
 
+Para restaurar o último commmit.
+Retorna ao últimi comit. 
+Não faz limpeza de arquivos adcionados.
+
+```
+    git reset --hard
+
+```
+
+Para limpar arquivos adcionados use o comando
+
+```
+    git clean -fd
+
+```
+
+
+
+
+
+
 
 # 6 Branchs 
 https://git-school.github.io/visualizing-git/
